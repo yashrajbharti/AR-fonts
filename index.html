@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+</head>
+<body>
+  <a-scene>
+
+
+    <a-entity text="value:Hello; color:#000; shader: msdf; font:./fonts/aclonica/Aclonica-Regular.json;" scale="15 15 15" position="6.7 1 -2"></a-entity>
+
+
+
+ </a-scene>
+ <script type="text/javascript">
+       let els = document.querySelectorAll('[text]');
+       let current = 0, total = els.length;
+
+       let hideAll = ()=> {
+         for (let el of els) {
+           el.setAttribute('visible', false);
+         }
+       }
+
+       let show = ()=>{
+         hideAll();
+         if (current > total-1) {
+           current = 0;
+         }
+         els[current].setAttribute('visible', true);
+         current++;
+       }
+
+       show();
+       setInterval(show, 300);
+     </script>
+</body>
+</html>
